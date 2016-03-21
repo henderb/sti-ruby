@@ -19,6 +19,10 @@ export RACK_ENV=${RACK_ENV:-"production"}
 echo "---> Installing application source ..."
 cp -Rf /tmp/src/. ./
 
+echo "---> Copy over database.yml and application.yml ..."
+cp -f /tmp/src/config/database.yml.dist ./config/database.yml
+cp -f /tmp/src/config/application.yml.dist ./config/application.yml
+
 echo "---> Building your Ruby application from source ..."
 if [ -f Gemfile ]; then
   ADDTL_BUNDLE_ARGS=""
