@@ -17,7 +17,7 @@ LABEL io.k8s.description="Platform for building and running Ruby 2.2 application
 RUN INSTALL_PKGS="rh-ruby22 rh-ruby22-ruby-devel rh-ruby22-rubygem-rake v8314 rh-ruby22-rubygem-bundler nodejs010 qt5-qtwebkit-devel ImageMagick-devel" && \
     yum install -y centos-release-scl epel-release && \
     yum install -y --setopt=tsflags=nodocs  $INSTALL_PKGS && rpm -V $INSTALL_PKGS && \
-    yum clean all -y \
+    yum clean all -y && \
     alternatives --install /usr/local/bin/qmake qmake /usr/bin/qmake-qt5 5
 
 # Copy the S2I scripts from the specific language image to $STI_SCRIPTS_PATH
