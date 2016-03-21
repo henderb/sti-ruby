@@ -7,7 +7,8 @@ MAINTAINER SoftwareCollections.org <sclorg@redhat.com>
 
 EXPOSE 8080
 
-ENV RUBY_VERSION 2.2
+ENV RUBY_VERSION 2.2 \
+    QMAKE /usr/bin/qmake-qt5
 
 LABEL io.k8s.description="Platform for building and running Ruby 2.2 applications" \
       io.k8s.display-name="Ruby 2.2" \
