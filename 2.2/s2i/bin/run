@@ -17,7 +17,7 @@ export RACK_ENV=${RACK_ENV:-"production"}
 if is_puma_installed; then
   exec bundle exec "puma --config ../etc/puma.cfg"
 elif is_passenger_installed; then
-  exec bundle exec "passenger start --port 8080"
+  exec bundle exec "passenger start --port 8080 --engine ngnix"
 else
   echo "You might consider adding 'puma' into your Gemfile."
 
