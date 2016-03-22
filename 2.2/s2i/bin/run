@@ -5,12 +5,19 @@ function is_puma_installed() {
   grep ' puma ' Gemfile.lock >/dev/null
 }
 
+function is_passenger_installed() {
+  [ ! -f Gemfile.lock ] && return 1
+  grep ' passenger ' Gemfile.lock >/dev/null
+}
+
 set -e
 
 export RACK_ENV=${RACK_ENV:-"production"}
 
 if is_puma_installed; then
   exec bundle exec "puma --config ../etc/puma.cfg"
+elif is_passenger_installed; then
+  exec bundle exec "passenger start --port 8080"
 else
   echo "You might consider adding 'puma' into your Gemfile."
 
