@@ -12,6 +12,11 @@ function rake_assets_precompile() {
   bundle exec rake assets:precompile
 }
 
+if [ "$(ls /tmp/sti/artifacts/ 2>/dev/null)" ]; then
+    echo "Restoring artifacts from previous build"
+    mv /tmp/sti/artifacts/* $HOME/.
+fi
+
 set -e
 
 export RACK_ENV=${RACK_ENV:-"production"}
