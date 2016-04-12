@@ -3,9 +3,9 @@
 pushd ${HOME} >/dev/null
 
 if [ -d ./.npm ]; then
-    tar cf - ./.bundle ./bundle ./.npm
+    tar cf - ./.bundle ./.npm
 else
-    tar cf - ./.bundle ./bundle
+    tar cf - ./.bundle
 fi
 
 popd >/dev/null
