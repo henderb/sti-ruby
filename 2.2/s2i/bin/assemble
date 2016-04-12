@@ -13,9 +13,9 @@ function rake_assets_precompile() {
 }
 
 if [ -d /tmp/artifacts/ ]; then
-    echo "Restoring artifacts from previous build"
+    echo "---> Restoring artifacts from previous build ..."
     shopt -s dotglob
-    mv /tmp/artifacts/* $HOME/.
+    mv /tmp/artifacts/* $HOME/
     shopt -u dotglob
 fi
 
