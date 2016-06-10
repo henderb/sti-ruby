@@ -1,0 +1,12 @@
+#!/bin/sh -e
+
+pushd ${HOME} >/dev/null
+
+if [ -d ./.npm ]; then
+    tar cf - ./.bundle ./bundle ./.npm
+else
+    tar cf - ./.bundle ./bundle
+fi
+
+popd >/dev/null
+
